@@ -1,15 +1,15 @@
 <template>
   <div class="mb-2">
     <breadcrumbs>
-      <template v-slot:model> Tutores </template>
-      <template v-slot:action> Lista de Tutores </template>
+      <template v-slot:model> Clientes </template>
+      <template v-slot:action> Lista de Clientes </template>
     </breadcrumbs>
   </div>
   <div class="card w-full bg-base-100 shadow-sm card-border">
     <div class="card-body">
       <div class="overflow-x-auto">
         <div class="flex">
-          <div class="flex-1 mb-5 text-2xl">Tutores</div>
+          <div class="flex-1 mb-5 text-2xl">Clientes</div>
           <button class="btn btn-second" @click="adicionar">Adicionar</button>
         </div>
         <table class="table">
@@ -24,7 +24,8 @@
               <th>Nome</th>
               <th>Endereço</th>
               <th>Telefone</th>
-              <th>Ações</th>
+              <th>Total/P</th>
+              
             </tr>
           </thead>
           <tbody>
@@ -71,7 +72,7 @@
                 </div>
               </td>
               <th>
-                <button class="btn btn-ghost btn-xs">details</button>
+                <button class="btn btn-outline btn-success">Confirmar</button>
               </th>
             </tr>
           </tbody>
