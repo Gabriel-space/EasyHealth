@@ -72,7 +72,8 @@
                 </div>
               </td>
               <th>
-                <button class="btn btn-outline btn-success">Confirmar</button>
+                <button class="btn btn-soft btn-success">Confirmar</button>
+
               </th>
             </tr>
           </tbody>

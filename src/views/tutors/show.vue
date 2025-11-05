@@ -1,8 +1,7 @@
 <template>
   <div>
     <breadcrumbs>
-      <template v-slot:model> Tutores </template>
-      <template v-slot:action> Tutor </template>
+      <template v-slot:model> Clientes </template>
     </breadcrumbs>
     <pre>
       {{ $route.params.id }}
