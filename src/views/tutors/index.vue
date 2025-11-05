@@ -10,7 +10,8 @@
       <div class="overflow-x-auto">
         <div class="flex">
           <div class="flex-1 mb-5 text-2xl">Clientes</div>
-          <button class="btn btn-second" @click="adicionar">Adicionar</button>
+          
+          <button class="btn btn-warning"@click="adicionar">Adicionar</button>
         </div>
         <table class="table">
           <!-- head -->
@@ -24,7 +25,7 @@
               <th>Nome</th>
               <th>Endereço</th>
               <th>Telefone</th>
-              <th>Total/P</th>
+            
               
             </tr>
           </thead>
@@ -72,8 +73,7 @@
                 </div>
               </td>
               <th>
-                <button class="btn btn-soft btn-success">Confirmar</button>
-
+                <button class="btn btn-soft btn-success h-9 w-19 ">Confirmar</button>
               </th>
             </tr>
           </tbody>
