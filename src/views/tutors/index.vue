@@ -71,7 +71,7 @@
                 </div>
               </td>
               <th>
-                <button class="btn btn-ghost btn-xs">details</button>
+                <button class="btn btn-ghost btn-xs">Cofirmar</button>
               </th>
             </tr>
           </tbody>
