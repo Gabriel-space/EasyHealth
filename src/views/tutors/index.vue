@@ -11,7 +11,7 @@
         <div class="flex">
           <div class="flex-1 mb-5 text-2xl">Clientes</div>
           
-          <button class="btn btn-warning"@click="adicionar">Adicionar</button>
+          <button class="btn btn-primary"@click="adicionar">Adicionar</button>
         </div>
         <table class="table">
           <!-- head -->
