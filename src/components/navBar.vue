@@ -18,7 +18,7 @@
       </button>
     </div>
     <div class="flex-1">
-      <a class="mx-4 text-xl font-light">PetClinic - Clínica Veterinária</a>
+      <a class="mx-4 text-xl font-light">System - Reservas</a>
     </div>
     <div class="flex-none">
       <button class="btn btn-square btn-ghost">
