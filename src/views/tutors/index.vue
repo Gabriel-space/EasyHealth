@@ -41,7 +41,7 @@
                   <div class="avatar">
                     <div class="mask mask-squircle h-12 w-12">
                       <img
-                        src="https://img.daisyui.com/images/profile/demo/2@94.webp"
+                        src="https://i.pinimg.com/736x/be/de/50/bede50853ed66c1dcf6b7c978b95cb6b.jpg"
                         alt="Avatar Tailwind CSS Component"
                       />
                     </div>

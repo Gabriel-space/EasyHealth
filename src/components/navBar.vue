@@ -1,7 +1,8 @@
 <template>
-<div class="navbar bg-base-100 shadow-sm">
+<div class="navbar bg-neutral text-neutral-content">
   <div>
     <button class="btn btn-square btn-ghost" @click="toggleSidebar">
+      
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
@@ -16,8 +17,8 @@
   </div>
   <div class="navbar-start">
     <div class="dropdown">
-      <div tabindex="0" role="button" class="btn btn-ghost btn-circle">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"> </svg>
+      <div tabindex="0" role="button">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" stroke="currentColor"> </svg>
       </div>
     </div>
   </div>
