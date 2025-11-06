@@ -73,7 +73,11 @@
                 </div>
               </td>
               <th>
-                <button class="btn btn-soft btn-success h-9 w-19 ">Confirmar</button>
+                <button class="btn btn-soft btn-success h-6 w-18 "@click="confirmar">Confirmar</button>
+                <br><br>
+                <button class="btn btn-info h-5 w-17 "@click="editar">Editar</button>
+                <br><br>
+                <button class="btn btn-error h-5 w-17 "@click="deletar">Deletar</button>
               </th>
             </tr>
           </tbody>

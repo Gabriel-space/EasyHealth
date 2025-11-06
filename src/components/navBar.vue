@@ -23,7 +23,7 @@
     </div>
   </div>
   <div class="navbar-center">
-    <a class ="btn btn-ghost text-xl font-light">EASY-HEALTH</a>
+    <a class ="btn btn-ghost text-xl font-extralight">EASY-HEALTH</a>
   </div>
   <div class="navbar-end">
     <button class="btn btn-ghost btn-circle">
