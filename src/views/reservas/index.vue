@@ -10,7 +10,7 @@
       <div class="overflow-x-auto">
         <div class="flex">
           <div class="flex-1 mb-5 text-2xl">Reservas</div>
-          
+      
           <button class="btn btn-neutral"@click="adicionar">Adicionar</button>
         </div>
         <table class="table">
