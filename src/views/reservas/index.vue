@@ -19,7 +19,7 @@
             <tr>
               <th>
                 <label>
-                  <input type="checkbox" class="checkbox" />
+                  <input type="checkbox" checked="checked" class="checkbox checkbox-sm" />
                 </label>
               </th>
               <th>Nome</th>
@@ -34,7 +34,7 @@
             <tr v-for="reserva in reservas" :key="reserva.id">
               <th>
                 <label>
-                  <input type="checkbox" class="checkbox" />
+                  <input type="checkbox" checked="checked" class="checkbox checkbox-sm" />
                 </label>
               </th>
               <td>

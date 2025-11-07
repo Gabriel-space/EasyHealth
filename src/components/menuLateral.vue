@@ -2,7 +2,7 @@
   <div class="mx-3">
     <ul class="menu bg-base-200 rounded-box w-56">
       <li><router-link :to="{name:'reservas.index'}">Reservas</router-link></li>
-      
+
     </ul>
   </div>
 </template>
