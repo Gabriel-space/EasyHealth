@@ -1,7 +1,7 @@
 <template>
   <div>
     <breadcrumbs>
-      <template v-slot:model> Clientes </template>
+      <template v-slot:model> Reservas </template>
     </breadcrumbs>
     <pre>
       {{ $route.params.id }}

@@ -1,15 +1,15 @@
 <template>
   <div class="mb-2">
     <breadcrumbs>
-      <template v-slot:model> Clientes </template>
-      <template v-slot:action> Lista de Clientes </template>
+      <template v-slot:model> Reservas </template>
+      <template v-slot:action> Lista de Reservas </template>
     </breadcrumbs>
   </div>
   <div class="card w-full bg-base-100 shadow-sm card-border">
     <div class="card-body">
       <div class="overflow-x-auto">
         <div class="flex">
-          <div class="flex-1 mb-5 text-2xl">Clientes</div>
+          <div class="flex-1 mb-5 text-2xl">Reservas</div>
           
           <button class="btn btn-info"@click="adicionar">Adicionar</button>
         </div>
@@ -24,14 +24,14 @@
               </th>
               <th>Nome</th>
               <th>Endereço</th>
-              <th>Telefone</th>
+              <th>Data</th>
             
               
             </tr>
           </thead>
           <tbody>
             <!-- row 1 -->
-            <tr v-for="tutor in tutores" :key="tutor.id">
+            <tr v-for="reserva in reservas" :key="reserva.id">
               <th>
                 <label>
                   <input type="checkbox" class="checkbox" />
@@ -48,24 +48,24 @@
                     </div>
                   </div>
                   <div>
-                    <div class="font-bold">{{ tutor.nome }}</div>
+                    <div class="font-bold">{{ reserva.nome }}</div>
                     <div class="text-sm opacity-50">
-                      {{ tutor.endereco.cidade ?? "Cliente sem cidade" }}
+                      {{ reserva.endereco.cidade ?? "Cliente sem cidade" }}
                     </div>
                   </div>
                 </div>
               </td>
               <td>
-                {{ tutor.endereco.logradouro }} {{ tutor.endereco.numero ?? "S/N" }}
-                {{ tutor.endereco.cep }} {{ tutor.endereco.complemento }}
+                {{ reserva.endereco.logradouro }} {{ reserva.endereco.numero ?? "S/N" }}
+                {{ reserva.endereco.cep }} {{ reserva.endereco.complemento }}
                 <br />
                 <span class="badge badge-ghost badge-sm"
-                  >{{ tutor.endereco.cidade }}/{{ tutor.endereco.estado }}</span
+                  >{{ reserva.endereco.cidade }}/{{ reserva.endereco.estado }}</span
                 >
               </td>
               <td>
                 <div
-                  v-for="telefone in tutor.telefones"
+                  v-for="telefone in reserva.telefones"
                   :key="telefone"
                   class="badge badge-xs badge-dash flex m-1"
                 >
@@ -77,7 +77,7 @@
                 <br><br>
                 <button class="btn btn-info h-5 w-17 "@click="editar">Editar</button>
                 <br><br>
-                <button class="btn btn-error h-5 w-17 "@click="deletar">Deletar</button>
+                <button class="btn btn-outline btn-error h-5 w-17 "@click="deletar">Deletar</button>
               </th>
             </tr>
           </tbody>
@@ -97,19 +97,19 @@ import Localbase from "localbase";
 let db;
 onMounted(() => {
   db = new Localbase("db");
-  capturarTutores();
+  capturarReservas();
 });
 
-const tutores = ref([]);
+const reservas = ref([]);
 
-const capturarTutores = async () => {
-  tutores.value = await db.collection("tutores").get();
+const capturarReservas = async () => {
+  reservas.value = await db.collection("reservas").get();
 };
 
 const router = useRouter();
 
 const adicionar = () => {
-  router.push({ name: "tutors.add" });
+  router.push({ name: "reservas.add" });
 };
 </script>
 

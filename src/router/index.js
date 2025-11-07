@@ -9,12 +9,12 @@ const router = createRouter({
       component: () => import('@/views/dashboard.vue'),
     },
     {
-      path: '/tutors',
+      path: '/reservas',
       children: [
-        { path: '', name: 'clientes.index', component: () => import('@/views/tutors/index.vue')},
-        { path: 'add', name: 'tutors.add', component: () => import('@/views/tutors/add.vue')},
-        { path: ':id/edit', component: () => import('@/views/tutors/edit.vue')},
-        { path: ':id/show', component: () => import('@/views/tutors/show.vue')},
+        { path: '', name: 'reservas.index', component: () => import('@/views/reservas/index.vue')},
+        { path: 'add', name: 'reservas.add', component: () => import('@/views/reservas/add.vue')},
+        { path: ':id/edit', component: () => import('@/views/reservas/edit.vue')},
+        { path: ':id/show', component: () => import('@/views/reservas/show.vue')},
       ]
     }
   ],

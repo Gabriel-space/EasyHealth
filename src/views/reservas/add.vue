@@ -1,7 +1,7 @@
 <template>
   <div class="w-full">
     <fieldset class="fieldset bg-base-200 border-base-300 rounded-box w-full border p-4">
-      <legend class="fieldset-legend">Adicionando tutores</legend>
+      <legend class="fieldset-legend">Adicionando reservas</legend>
 
       <label class="label">Nome</label>
       <input
@@ -11,8 +11,8 @@
         v-model="form.nomeCompleto"
       />
 
-      <label class="label">Logradouro</label>
-      <input type="text" class="input w-full" placeholder="Logradouro" v-model="form.logradouro" />
+      <label class="label">Data</label>
+      <input type="text" class="input w-full" placeholder="__/__/__" v-model="form.logradouro" />
 
       <label class="label">Número</label>
       <input type="text" class="input w-full" placeholder="Número" v-model="form.numero" />
@@ -37,7 +37,7 @@
       <label class="label">Estado</label>
       <input type="text" class="input w-full" placeholder="Estado" v-model="form.estado" />
 
-      <button class="btn btn-neutral mt-4" @click="adicionarTutor">Adicionar</button>
+      <button class="btn btn-neutral mt-4" @click="adicionarReserva">Adicionar</button>
     </fieldset>
     <div class="toast" v-if="toastVisible">
       <div class="alert alert-info">
@@ -71,9 +71,9 @@ const form = reactive({
   estado: "",
 });
 
-const adicionarTutor = async () => {
+const adicionarReserva = async () => {
   try {
-    await db.collection("tutores").add({
+    await db.collection("reservas").add({
       nome: form.nomeCompleto,
       endereco: {
         logradouro: form.logradouro,
@@ -86,11 +86,11 @@ const adicionarTutor = async () => {
       },
       telefones: [],
     });
-    console.log("Tutor adicionado com sucesso!");
+    console.log("Reserva adicionado com sucesso!");
     nomeCompletoToast.value = form.nomeCompleto;
     toastVisible.value = true;
   } catch (error) {
-    console.error("Erro ao adicionar tutor:", error);
+    console.error("Erro ao adicionar reserva:", error);
   } finally {
     // Limpar o formulário após a adição
     form.nomeCompleto = "";
