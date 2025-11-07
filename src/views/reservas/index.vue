@@ -5,13 +5,13 @@
       <template v-slot:action> Lista de Reservas </template>
     </breadcrumbs>
   </div>
-  <div class="card w-full bg-base-100 shadow-sm card-border">
+  <div class="card w-full bg-base-100 shadow-xl card-border">
     <div class="card-body">
       <div class="overflow-x-auto">
         <div class="flex">
           <div class="flex-1 mb-5 text-2xl">Reservas</div>
           
-          <button class="btn btn-info"@click="adicionar">Adicionar</button>
+          <button class="btn btn-neutral"@click="adicionar">Adicionar</button>
         </div>
         <table class="table">
           <!-- head -->
@@ -24,7 +24,9 @@
               </th>
               <th>Nome</th>
               <th>Endereço</th>
+              
               <th>Data</th>
+              
             
               
             </tr>
@@ -49,20 +51,30 @@
                   </div>
                   <div>
                     <div class="font-bold">{{ reserva.nome }}</div>
-                    <div class="text-sm opacity-50">
+                    <div class="text-sm opacity-75">
                       {{ reserva.endereco.cidade ?? "Cliente sem cidade" }}
                     </div>
                   </div>
                 </div>
               </td>
+            
               <td>
-                {{ reserva.endereco.logradouro }} {{ reserva.endereco.numero ?? "S/N" }}
-                {{ reserva.endereco.cep }} {{ reserva.endereco.complemento }}
+               
+                
                 <br />
-                <span class="badge badge-ghost badge-sm"
-                  >{{ reserva.endereco.cidade }}/{{ reserva.endereco.estado }}</span
+                <span class="badge badge-ghost badge-md"
+                  >{{ reserva.endereco.numero }}</span
+                >
+                
+              </td>
+              <td>
+               
+                <br>
+                <span class="badge badge-ghost badge-md"
+                  >{{ reserva.endereco.data }}</span
                 >
               </td>
+              <br>
               <td>
                 <div
                   v-for="telefone in reserva.telefones"
@@ -73,11 +85,11 @@
                 </div>
               </td>
               <th>
-                <button class="btn btn-soft btn-success h-6 w-18 "@click="confirmar">Confirmar</button>
+                <button class="btn btn-soft btn-success h-6 w-18 rounded-full absolute right-5" @click="confirmar">Confirmar</button>
                 <br><br>
-                <button class="btn btn-info h-5 w-17 "@click="editar">Editar</button>
+                <button class="btn btn-info h-5 w-18 rounded-full "@click="editar">Editar</button>
                 <br><br>
-                <button class="btn btn-outline btn-error h-5 w-17 "@click="deletar">Deletar</button>
+                
               </th>
             </tr>
           </tbody>

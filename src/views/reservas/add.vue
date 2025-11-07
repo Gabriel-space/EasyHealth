@@ -12,7 +12,7 @@
       />
 
       <label class="label">Data</label>
-      <input type="text" class="input w-full" placeholder="__/__/__" v-model="form.logradouro" />
+      <input type="text" class="input w-full" placeholder="__/__/__" v-model="form.data" />
 
       <label class="label">Número</label>
       <input type="text" class="input w-full" placeholder="Número" v-model="form.numero" />
@@ -62,7 +62,7 @@ const toastVisible = ref(false);
 const nomeCompletoToast = ref("");
 const form = reactive({
   nomeCompleto: "",
-  logradouro: "",
+  data: "",
   numero: "",
   bairro: "",
   cep: "",
@@ -76,7 +76,7 @@ const adicionarReserva = async () => {
     await db.collection("reservas").add({
       nome: form.nomeCompleto,
       endereco: {
-        logradouro: form.logradouro,
+        data: form.data,
         numero: form.numero,
         bairro: form.bairro,
         cep: form.cep,
@@ -94,7 +94,7 @@ const adicionarReserva = async () => {
   } finally {
     // Limpar o formulário após a adição
     form.nomeCompleto = "";
-    form.logradouro = "";
+    form.data = "";
     form.numero = "";
     form.bairro = "";
     form.cep = "";
