@@ -3,7 +3,7 @@
     <div class="mb-4">
       <breadcrumbs>
         <template v-slot:model> Reservas </template>
-        <template v-slot:action> Nova Reserva </template>
+        <template v-slot:action> Adicionar </template>
       </breadcrumbs>
     </div>
 
@@ -327,10 +327,11 @@ const adicionarReserva = async () => {
   salvando.value = true;
   
   try {
-    // Filtra telefones vazios
     const telefonesValidos = form.telefones.filter(t => t.trim() !== "");
     
-    await db.collection("reservas").add({
+    // GERA UM ID ÚNICO
+    const novaReserva = {
+      id: Date.now().toString(), // ← ADICIONE ESTA LINHA
       nome: form.nomeCompleto,
       endereco: {
         data: form.data,
@@ -344,11 +345,12 @@ const adicionarReserva = async () => {
       telefones: telefonesValidos,
       confirmada: false,
       criadoEm: new Date().toISOString()
-    });
+    };
+    
+    await db.collection("reservas").add(novaReserva);
     
     mostrarToast(`Reserva de ${form.nomeCompleto} criada com sucesso!`, "success");
     
-    // Aguarda um pouco e volta para lista
     setTimeout(() => {
       router.push({ name: "reservas.index" });
     }, 1500);

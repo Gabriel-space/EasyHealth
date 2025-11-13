@@ -14,7 +14,7 @@
           <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
           </svg>
-          Nova Reserva
+          Adicionar
         </button>
       </div>
 
@@ -24,7 +24,7 @@
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
         </svg>
         <p class="text-lg mb-2">Nenhuma reserva encontrada</p>
-        <p class="text-sm text-gray-500">Clique em "Nova Reserva" para começar</p>
+        <p class="text-sm text-gray-500">Clique em "Adicionar" para começar</p>
       </div>
 
       <!-- Tabela de reservas -->

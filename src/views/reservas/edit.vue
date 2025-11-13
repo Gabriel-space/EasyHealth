@@ -405,7 +405,3 @@ const mostrarToast = (mensagem, tipo = "success") => {
   }, 3000);
 };
 </script>
-
-<style scoped>
-/* Estilos adicionais se necessário */
-</style>
