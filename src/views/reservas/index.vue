@@ -61,7 +61,7 @@
                 <div class="text-sm">
                   <div>{{ reserva.endereco?.bairro || '-' }}</div>
                   <span class="badge badge-ghost badge-sm">
-                    Data {{ reserva.endereco?.numero || 'S/N' }}
+                     {{ reserva.endereco?.numero || 'S/N' }}
                   </span>
                 </div>
               </td>
@@ -129,7 +129,9 @@ const toastMessage = ref("");
 
 const capturarReservas = async () => {
   try {
-    reservas.value = await db.collection("reservas").get();
+    const todasReservas = await db.collection("reservas").get();
+    // Mostra apenas as NÃO arquivadas
+    reservas.value = todasReservas.filter(r => !r.arquivada);
   } catch (error) {
     console.error("Erro ao capturar reservas:", error);
   }
@@ -159,14 +161,19 @@ const confirmar = async (id) => {
 };
 
 const excluir = async (id) => {
-  if (!confirm("Tem certeza que deseja excluir esta reserva?")) return;
+  if (!confirm("Tem certeza que deseja arquivar esta reserva?")) return;
   
   try {
-    await db.collection("reservas").doc({ id }).delete();
+    // Em vez de deletar, apenas marca como "arquivada"
+    await db.collection("reservas").doc({ id }).update({
+      arquivada: true,
+      dataArquivamento: new Date().toISOString()
+    });
+    
     await capturarReservas();
-    mostrarToast("Reserva excluída com sucesso!");
+    mostrarToast("Reserva arquivada com sucesso!");
   } catch (error) {
-    console.error("Erro ao excluir:", error);
+    console.error("Erro ao arquivar:", error);
   }
 };
 
