@@ -1,46 +1,47 @@
 <template>
   <div class="mb-2">
     <breadcrumbs>
-      <template v-slot:model> Reservas </template>
-      <template v-slot:action> Lista de Reservas </template>
+      <template v-slot:model> Histórico </template>
+      <template v-slot:action> Reservas Confirmadas </template>
     </breadcrumbs>
   </div>
   
   <div class="card w-full bg-base-100 shadow-xl">
     <div class="card-body">
       <div class="flex justify-between items-center mb-5">
-        <h2 class="text-2xl font-bold">Reservas</h2>
-        <button class="btn btn-primary" @click="adicionar">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
-          </svg>
-          Adicionar
-        </button>
+        <div>
+          <h2 class="text-2xl font-bold">Histórico de Reservas</h2>
+          <p class="text-sm text-gray-500">Reservas já confirmadas</p>
+        </div>
+        <div class="badge badge-lg badge-primary">
+          {{ reservasConfirmadas.length }} confirmadas
+        </div>
       </div>
 
-      <!-- Mensagem quando não há reservas -->
-      <div v-if="reservas.length === 0" class="text-center py-12">
+      <!-- Mensagem quando não há histórico -->
+      <div v-if="reservasConfirmadas.length === 0" class="text-center py-12">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 mx-auto text-gray-300 mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
         </svg>
-        <p class="text-lg mb-2">Nenhuma reserva encontrada</p>
-        <p class="text-sm text-gray-500">Clique em "Adicionar" para começar</p>
+        <p class="text-lg mb-2">Nenhuma reserva confirmada</p>
+        <p class="text-sm text-gray-500">As reservas confirmadas aparecerão aqui</p>
       </div>
 
-      <!-- Tabela de reservas -->
+      <!-- Tabela de histórico -->
       <div v-else class="overflow-x-auto">
         <table class="table">
           <thead>
             <tr>
               <th>Paciente</th>
               <th>Endereço</th>
-              <th>Data Reservada</th>
+              <th>Data da Reserva</th>
+              <th>Data Confirmação</th>
               <th>Telefones</th>
               <th class="text-right">Ações</th>
             </tr>
           </thead>
           <tbody>
-            <tr v-for="reserva in reservas" :key="reserva.id" class="hover">
+            <tr v-for="reserva in reservasConfirmadas" :key="reserva.id" class="hover">
               <td>
                 <div class="flex items-center gap-3">
                   <div class="avatar">
@@ -61,7 +62,7 @@
                 <div class="text-sm">
                   <div>{{ reserva.endereco?.bairro || '-' }}</div>
                   <span class="badge badge-ghost badge-sm">
-                    Data {{ reserva.endereco?.numero || 'S/N' }}
+                    Nº {{ reserva.endereco?.numero || 'S/N' }}
                   </span>
                 </div>
               </td>
@@ -69,6 +70,12 @@
               <td>
                 <span class="badge badge-primary">
                   {{ formatarData(reserva.endereco?.data) }}
+                </span>
+              </td>
+
+              <td>
+                <span class="badge badge-success">
+                  {{ formatarDataHora(reserva.dataConfirmacao) }}
                 </span>
               </td>
               
@@ -83,13 +90,10 @@
               
               <td>
                 <div class="flex justify-end gap-2">
-                  <button class="btn btn-sm btn-success" @click="confirmar(reserva.id)" :disabled="reserva.confirmada">
-                    {{ reserva.confirmada ? '✓ Confirmado' : 'Confirmar' }}
-                  </button>
-                  <button class="btn btn-sm btn-info" @click="editar(reserva.id)">
-                    Editar
-                  </button>
                   <button class="btn btn-sm btn-error" @click="excluir(reserva.id)">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                    </svg>
                     Excluir
                   </button>
                 </div>
@@ -112,59 +116,38 @@
 <script setup>
 import breadcrumbs from "@/components/breadcrumbs.vue";
 import { ref, onMounted } from "vue";
-import { useRouter } from "vue-router";
 import Localbase from "localbase";
 
-const router = useRouter();
 let db;
 
 onMounted(() => {
   db = new Localbase("db");
-  capturarReservas();
+  carregarHistorico();
 });
 
-const reservas = ref([]);
+const reservasConfirmadas = ref([]);
 const toastVisible = ref(false);
 const toastMessage = ref("");
 
-const capturarReservas = async () => {
+const carregarHistorico = async () => {
   try {
-    reservas.value = await db.collection("reservas").get();
+    const todasReservas = await db.collection("reservas").get();
+    // Filtra apenas as confirmadas e ordena por data de confirmação (mais recente primeiro)
+    reservasConfirmadas.value = todasReservas
+      .filter(r => r.confirmada === true)
+      .sort((a, b) => new Date(b.dataConfirmacao) - new Date(a.dataConfirmacao));
   } catch (error) {
-    console.error("Erro ao capturar reservas:", error);
-  }
-};
-
-const adicionar = () => {
-  router.push({ name: "reservas.add" });
-};
-
-const editar = (id) => {
-  router.push({ name: "reservas.edit", params: { id } });
-};
-
-const confirmar = async (id) => {
-  try {
-    // Atualiza com status confirmado E data de confirmação
-    await db.collection("reservas").doc({ id }).update({ 
-      confirmada: true,
-      dataConfirmacao: new Date().toISOString() // ← ADICIONE ESTA LINHA
-    });
-    
-    await capturarReservas();
-    mostrarToast("Reserva confirmada e movida para o histórico!");
-  } catch (error) {
-    console.error("Erro ao confirmar:", error);
+    console.error("Erro ao carregar histórico:", error);
   }
 };
 
 const excluir = async (id) => {
-  if (!confirm("Tem certeza que deseja excluir esta reserva?")) return;
+  if (!confirm("Tem certeza que deseja excluir esta reserva do histórico?")) return;
   
   try {
     await db.collection("reservas").doc({ id }).delete();
-    await capturarReservas();
-    mostrarToast("Reserva excluída com sucesso!");
+    await carregarHistorico();
+    mostrarToast("Reserva removida do histórico!");
   } catch (error) {
     console.error("Erro ao excluir:", error);
   }
@@ -179,6 +162,23 @@ const formatarData = (data) => {
     return date.toLocaleDateString("pt-BR");
   } catch {
     return data;
+  }
+};
+
+const formatarDataHora = (dataISO) => {
+  if (!dataISO) return "N/A";
+  
+  try {
+    const date = new Date(dataISO);
+    return date.toLocaleString("pt-BR", {
+      day: '2-digit',
+      month: '2-digit',
+      year: 'numeric',
+      hour: '2-digit',
+      minute: '2-digit'
+    });
+  } catch {
+    return "N/A";
   }
 };
 

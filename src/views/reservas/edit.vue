@@ -51,7 +51,7 @@
           <!-- Data -->
           <div class="form-control">
             <label class="label">
-              <span class="label-text font-semibold">Data da Reserva *</span>
+              <span class="label-text font-semibold">Data Reservada *</span>
             </label>
             <input
               type="date"
@@ -86,13 +86,14 @@
 
             <div class="form-control">
               <label class="label">
-                <span class="label-text font-semibold">Número</span>
+                <span class="label-text font-semibold">Data da reserva *</span>
               </label>
               <input
-                type="text"
-                class="input input-bordered w-full"
-                placeholder="123"
-                v-model="form.numero"
+                type="date"
+              class="input input-bordered w-full"
+              :class="{ 'input-error': erros.numero }"
+              v-model="form.numero"
+              required
               />
             </div>
           </div>

@@ -26,6 +26,16 @@ const router = createRouter({
           component: () => import('@/views/reservas/edit.vue')
         },
       ]
+    },
+    {
+      path: '/historico',
+      children: [
+        {
+          path: '',
+          name: 'historico.index',
+          component: () => import('@/views/historico/index.vue')
+        }
+      ]
     }
   ],
 })
