@@ -56,6 +56,12 @@ const router = createRouter({
           component: () => import('@/views/historico/index.vue')
         }
       ]
+    },
+    {
+      path: '/configuracoes',
+      name: 'configuracoes',
+      component: () => import('@/views/configuracoes.vue'),
+      meta: { requerAuth: true }
     }
   ],
 })

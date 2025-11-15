@@ -30,7 +30,7 @@
         <table class="table">
           <thead>
             <tr>
-              <th>Paciente</th>
+              <th>Cliente</th>
               <th>Endereço</th>
               <th>Data Reserva</th>
               <th>Confirmação</th>
@@ -80,7 +80,7 @@
               
               <td>
                 <div class="flex justify-end gap-2">
-                  <button class="btn btn-sm btn-warning" @click="desconfirmar(reserva.id)" title="Voltar para Reservas">
+                  <button class="btn btn-sm btn-info items" @click="desconfirmar(reserva.id)" title="Voltar para Reservas">
                     Desconfirmar
                   </button>
                   <button class="btn btn-sm btn-error" @click="excluir(reserva.id)" title="Excluir permanentemente">
