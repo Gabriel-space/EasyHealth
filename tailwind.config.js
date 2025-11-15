@@ -1,4 +1,3 @@
-/** @type {import('tailwindcss').Config} */
 export default {
   content: [
     "./index.html",
@@ -11,10 +10,7 @@ export default {
     require('daisyui')
   ],
   daisyui: {
-    themes: ["light", "dark", "cupcake", "synthwave"],
+    themes: ["light", "dark", "cupcake", "synthwave", "fantasy"],
     darkTheme: "dark",
-    base: true,
-    styled: true,
-    utils: true,
   },
 }
