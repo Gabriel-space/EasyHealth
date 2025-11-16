@@ -1,10 +1,10 @@
 <template>
   <div class="space-y-6">
     <!-- Header -->
-    <div class="card bg-gradient-to-r from-primary text-primary-content shadow-xl">
+    <div class="card bg-gradient-to-br from-blue-900 text-neutral-content shadow-xl">
       <div class="card-body">
         <h1 class="text-3xl font-bold">Bem-vindo, {{ nomeUsuario }}! 👋</h1>
-        <p class="text-lg opacity-90">Sistema de Gerenciamento de Reservas Médicas</p>
+        <p class="text-lg opacity-90">Sistema de Gerenciamento de Reservas</p>
       </div>
     </div>
 

@@ -3,7 +3,8 @@
     <!-- Header -->
     <div class="flex items-center justify-between mb-6">
       <div>
-        <h1 class="text-3xl font-bold">⚙️ Configurações</h1>
+        
+        <h1 class="text-3xl font-bold"> Configurações</h1>
         <p class="text-gray-500 mt-1">Gerencie suas preferências e dados do sistema</p>
       </div>
     </div>
@@ -72,6 +73,7 @@
           </div>
           <div>
             <button class="btn btn-primary btn-sm">Alterar Avatar</button>
+            <span class="badge badge-ghost badge-sm ml-auto">Em breve</span>
             <p class="text-sm text-gray-500 mt-2">JPG, PNG ou GIF (máx. 2MB)</p>
           </div>
         </div>
@@ -111,9 +113,9 @@
             </label>
             <select v-model="perfil.cargo" class="select select-bordered">
               <option>Administrador</option>
-              <option>Médico</option>
-              <option>Recepcionista</option>
-              <option>Enfermeiro</option>
+              <option>??</option>
+              <option>??</option>
+              <option>??</option>
             </select>
           </div>
         </div>
@@ -290,6 +292,7 @@
     <div v-if="abaAtiva === 'sistema'" class="card bg-base-100 shadow-xl">
       <div class="card-body">
         <h2 class="card-title text-2xl mb-6">Configurações do Sistema</h2>
+        <span class="badge badge-ghost badge-sm ml-auto">Em breve</span>
         
         <div class="space-y-6">
           <div class="form-control">

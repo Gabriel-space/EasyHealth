@@ -57,7 +57,7 @@
               <td>
                 <div class="text-sm">
                   <div>{{ reserva.endereco?.bairro || '-' }}</div>
-                  <span class="badge badge-ghost badge-sm">Nº {{ reserva.endereco?.numero || 'S/N' }}</span>
+                  <span class="badge badge-ghost badge-sm">Data : {{ reserva.endereco?.numero || 'S/N' }}</span>
                 </div>
               </td>
               
