@@ -60,21 +60,21 @@
       <div class="card-body">
         <h2 class="card-title text-2xl mb-4">Ações Rápidas</h2>
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-          <button class="btn btn-success btn-lg" @click="novaReserva">
+          <button class="btn bg-[#771255] btn-lg text-white" @click="novaReserva">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
             </svg>
             Nova Reserva
           </button>
           
-          <button class="btn btn-secondary btn-lg" @click="verReservas">
+          <button class="btn bg-blue-800 btn-lg text-white" @click="verReservas">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
             </svg>
             Ver Reservas
           </button>
           
-          <button class="btn btn-accent btn-lg" @click="verHistorico">
+          <button class="btn bg-gray-700 btn-lg text-white " @click="verHistorico">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
             </svg>

@@ -55,6 +55,15 @@
           <span class="badge badge-ghost badge-sm ml-auto">Em breve</span>
         </a>
       </li>
+      <li>
+        <a class="flex items-center gap-3">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.447L9.574 15.63M9 22h.007v.008H9V21zm.395-6.5h.007v.008H9.395V14.5z" />
+          </svg>
+          <span>Ajuda</span>
+          <span class="badge badge-ghost badge-sm ml-auto">Em breve</span>
+        </a>
+      </li>
     </ul>
 
     

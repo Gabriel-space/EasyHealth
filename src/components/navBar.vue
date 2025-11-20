@@ -95,4 +95,10 @@ const logout = () => {
     router.push({ name: 'login' });
   }
 };
+const abrirPerfil = () => {
+  // ATUALIZE ESTA LINHA:
+  router.push({ name: 'meuPerfil' }); 
+  // Opcional: Se o seu NavBar for um menu lateral, você pode querer fechar ele aqui.
+  emit("update:estaAberto", false);
+};
 </script>

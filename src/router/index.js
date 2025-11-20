@@ -29,20 +29,26 @@ const router = createRouter({
       path: '/reservas',
       meta: { requerAuth: true },
       children: [
-        { 
-          path: '', 
-          name: 'reservas.index', 
+        {
+          path: '',
+          name: 'reservas.index',
           component: () => import('@/views/reservas/index.vue')
         },
-        { 
-          path: 'add', 
-          name: 'reservas.add', 
+        {
+          path: 'add',
+          name: 'reservas.add',
           component: () => import('@/views/reservas/add.vue')
         },
-        { 
-          path: ':id/edit', 
-          name: 'reservas.edit', 
+        {
+          path: ':id/edit',
+          name: 'reservas.edit',
           component: () => import('@/views/reservas/edit.vue')
+        },
+        {
+          path: '/perfil',
+          name: 'meuPerfil',
+          component: () => import('@/views/auth/MeuPerfil.vue'), // << AJUSTE O CAMINHO SE NECESSÁRIO
+          meta: { requerAuth: true } // Garante que só usuários logados acessem
         },
       ]
     },
@@ -57,15 +63,15 @@ const router = createRouter({
         }
       ]
     },
-    
-    
+
+
   ],
 })
 
 // Proteção de rotas
 router.beforeEach((to, from, next) => {
   const usuarioLogado = localStorage.getItem('usuarioLogado');
-  
+
   if (to.meta.requerAuth && !usuarioLogado) {
     next({ name: 'login' });
   } else if ((to.name === 'login' || to.name === 'cadastro') && usuarioLogado) {
