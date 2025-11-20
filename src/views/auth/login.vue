@@ -88,7 +88,7 @@
           <!-- Link Cadastro -->
           <div class="text-center">
             <p class="text-sm mb-2">Não tem uma conta?</p>
-            <router-link :to="{name: 'cadastro'}" class="btn btn-outline btn-block">
+            <router-link :to="{name: 'cadastro'}" class="btn btn-outline btn-block btn-success">
               Criar Conta
             </router-link>
           </div>
@@ -174,7 +174,7 @@
         <!-- Copyright -->
         <div class="flex flex-col md:flex-row justify-between items-center gap-4 text-sm opacity-90">
           <div class="flex items-center gap-2">
-            <span>© 2024 ReservationSystem™</span>
+            <span>© 2025 ReservationSystem™</span>
             <span>•</span>
             <span>Todos os direitos reservados</span>
           </div>

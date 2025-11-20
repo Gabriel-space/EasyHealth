@@ -10,7 +10,7 @@
     <div class="card-body">
       <div class="flex justify-between items-center mb-5">
         <h2 class="text-2xl font-bold">Reservas Ativas</h2>
-        <button class="btn btn-primary" @click="adicionar">
+        <button class="btn btn-neutral" @click="adicionar">
           <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
           </svg>
@@ -42,7 +42,7 @@
               <td>
                 <div class="flex items-center gap-3">
                   <div class="avatar placeholder">
-                    <div class="bg-primary text-primary-content rounded-full w-12">
+                    <div class="card bg-blue-600 btext-primary-content rounded-full w-12">
                       <span class="text-xl">{{ reserva.nome[0] }}</span>
                     </div>
                   </div>

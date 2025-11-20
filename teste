@@ -1,0 +1,31 @@
+//STATUS RESERVAS**
+//const carregarEstatisticas = async () => {
+//try {
+//  const todasReservas = await db.collection("reservas").get();
+//  const reservasAtivas = todasReservas.filter(r => !r.arquivada);
+//  
+//  stats.value.total = reservasAtivas.length;
+//  stats.value.pendentes = reservasAtivas.filter(r => !r.confirmada).length;
+//  stats.value.confirmadas = reservasAtivas.filter(r => r.confirmada).length;
+//  
+//  const hoje = new Date().toISOString().split('T')[0];
+//    stats.value.hoje = reservasAtivas.filter(r => r.endereco?.data === hoje).length;
+//    
+//    proximasReservas.value = reservasAtivas
+//      .sort((a, b) => {
+//        // Tratar casos onde a data pode ser nula ou inválida
+//        const dateA = a.endereco?.data ? new Date(a.endereco.data) : null;
+//        const dateB = b.endereco?.data ? new Date(b.endereco.data) : null;
+//
+//        if (!dateA && !dateB) return 0;
+//        if (!dateA) return 1; // Coloca sem data no final
+//        if (!dateB) return -1; // Coloca sem data no final
+//        
+//        return dateA - dateB;
+//      })
+//      .slice(0, 5);
+//      
+//  } catch (error) {
+//    console.error("Erro ao carregar estatísticas:", error);
+//  }
+//};

@@ -50,12 +50,6 @@
             :style="{ maxHeight: userInfoAberto ? '200px' : '0' }"
           >
             <div class="p-3 pt-0 space-y-2">
-              <button @click="abrirPerfil" class="btn btn-ghost btn-sm btn-block justify-start">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                </svg>
-                Meu Perfil
-              </button>
               
               <button @click="abrirConfiguracoes" class="btn btn-ghost btn-sm btn-block justify-start">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -89,21 +83,14 @@
         <router-view />
       </main>
 
-      <!-- Rodapé Simples -->
-      <footer class="footer footer-center p-4 bg-base-100 text-base-content border-t">
-        <div class="flex items-center gap-2 text-sm opacity-70">
-          <span>© 2024 ReservationSystem™</span>
-          <span>•</span>
-          <span>Versão 1.0.0</span>
-        </div>
-      </footer>
+    
     </div>
   </div>
 
   <!-- Modal de Confirmação de Logout -->
   <dialog ref="logoutModal" class="modal">
     <div class="modal-box">
-      <h3 class="font-bold text-lg">⚠️ Confirmar Saída</h3>
+      <h3 class="font-bold text-lg">Confirmar Saída</h3>
       <p class="py-4">Tem certeza que deseja sair do sistema? Todas as alterações não salvas serão perdidas.</p>
       <div class="modal-action">
         <button class="btn" @click="fecharModal">Cancelar</button>
@@ -111,7 +98,7 @@
           <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
           </svg>
-          Sim, Sair
+          Sair
         </button>
       </div>
     </div>
@@ -156,11 +143,6 @@ const confirmarLogout = () => {
   fecharModal();
 };
 
-const abrirPerfil = () => {
-  router.push({ name: 'configuracoes' });
-};
 
-const abrirConfiguracoes = () => {
-  router.push({ name: 'configuracoes' });
-};
+
 </script>
