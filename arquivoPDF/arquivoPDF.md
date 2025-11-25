@@ -1,10 +1,10 @@
 Sistema de Reservas Online
-Introdução
+**Introdução**
 O presente projeto consiste no desenvolvimento de um Sistema de Reservas Online, cujo objetivo é facilitar o
 agendamento de recursos ou serviços, permitindo ao usuário final consultar disponibilidade em tempo real,
 realizar reservas e acompanhar seus agendamentos de forma prática e intuitiva. O sistema busca atender tato
 a usuários finais (clientes) quanto a administradores (gestores de recursos/serviços).
-Objetivos
+**Objetivos**
 Disponibilizar uma plataforma simples e acessível para realizar reservas.
 Proporcionar ao administrador o controle centralizado de recursos e agendamentos.
 Garantir confiabilidade nas informações, evitando reservas duplicadas.
