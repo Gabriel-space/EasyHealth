@@ -43,7 +43,7 @@
               <td>
                 <div class="flex items-center gap-3">
                   <div class="avatar placeholder">
-                    <div class="bg-success text-success-content rounded-full w-12">
+                    <div class="card bg-blue-800 text-primary-content rounded-full w-10">
                       <span class="text-xl">{{ reserva.nome[0] }}</span>
                     </div>
                   </div>
@@ -83,7 +83,7 @@
                   <button class="btn btn-sm btn-info items" @click="desconfirmar(reserva.id)" title="Voltar para Reservas">
                     Desconfirmar
                   </button>
-                  <button class="btn btn-sm btn-error" @click="excluir(reserva.id)" title="Excluir permanentemente">
+                  <button class="btn btn-sm btn-error bg-red-600" @click="excluir(reserva.id)" title="Excluir permanentemente">
                     Excluir
                   </button>
                 </div>

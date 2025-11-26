@@ -17,7 +17,7 @@
           <span>Home</span>
         </router-link>
       </li>
-
+      
       <li>
         <router-link 
           :to="{name:'reservas.index'}"

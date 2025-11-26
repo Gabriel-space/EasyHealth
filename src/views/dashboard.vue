@@ -12,13 +12,13 @@
     <div class="stats stats-vertical lg:stats-horizontal shadow-xl w-full">
       
       <div class="stat bg-base-100 rounded-lg">
-        <div class="stat-figure text-secondary">
+        <div class="stat-figure text-info">
           <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
           </svg>
         </div>
         <div class="stat-title">Total de Reservas</div>
-        <div class="stat-value text-secondary">{{ stats.total }}</div>
+        <div class="stat-value text-info">{{ stats.total }}</div>
         <div class="stat-desc">Todas as reservas ativas</div>
       </div>
 
@@ -45,13 +45,13 @@
       </div>
 
       <div class="stat bg-base-100 rounded-lg">
-        <div class="stat-figure text-info">
+        <div class="stat-figure text-neutral">
           <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
           </svg>
         </div>
         <div class="stat-title">Reservas para Hoje</div>
-        <div class="stat-value text-info">{{ stats.hoje }}</div>
+        <div class="stat-value text-neutral">{{ stats.hoje }}</div>
         <div class="stat-desc">Chegando ou saindo hoje</div>
       </div>
     </div>
@@ -74,7 +74,7 @@
             Ver Reservas
           </button>
           
-          <button class="btn bg-gray-700 btn-lg text-white " @click="verHistorico">
+          <button class="btn bg-gray-800 btn-lg text-white " @click="verHistorico">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
             </svg>
@@ -92,7 +92,9 @@
           Nenhuma reserva próxima agendada.
         </div>
         
+        <!-- Lista de Reservas Próximas -->
         <ul v-else class="menu bg-base-200 w-full rounded-box p-2">
+          <!-- Itera sobre as próximas reservas -->
           <li v-for="reserva in proximasReservas" :key="reserva.id">
             <a class="flex justify-between items-center" @click="verReservas">
               <div class="flex items-center gap-4">
@@ -108,7 +110,7 @@
               </div>
               
               <div class="text-right">
-                <p class="font-semibold text-lg">{{ formatarData(reserva.endereco?.data) }}</p>
+                <p class="font-bold text-lg h-8">{{ formatarData(reserva.endereco?.data) }}</p>
                 <span class="badge" 
                       :class="reserva.confirmada ? 'badge-success badge-outline' : 'badge-warning badge-outline'">
                   {{ reserva.confirmada ? 'Confirmada' : 'Pendente' }}

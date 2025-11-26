@@ -18,7 +18,7 @@
 
     <!-- Tema + Avatar -->
     <div class="flex-none gap-2">
-      <!-- Switcher de Tema -->
+      <!-- dark-Tema-navbar -->
       <label class="swap swap-rotate">
         <input type="checkbox" class="theme-controller" value="dark" />
         <svg class="swap-off h-6 w-6 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -32,7 +32,7 @@
       <!-- Dropdown Avatar -->
       <div class="dropdown dropdown-end">
         <label tabindex="0" class="btn btn-ghost btn-circle avatar placeholder">
-          <div class="bg-primary text-primary-content rounded-full w-10">
+          <div class="card bg-blue-800 text-primary-content rounded-full w-10">
             <span class="text-xl">{{ inicialUsuario }}</span>
           </div>
         </label>

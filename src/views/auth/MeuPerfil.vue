@@ -36,7 +36,7 @@
           
           <div class="flex justify-between items-center p-3 bg-base-200 rounded-lg hover:bg-base-300 transition-colors">
             <span class="font-semibold text-sm text-gray-500">Telefone:</span>
-            <span class="font-medium text-lg">{{ usuario.telefone || 'Não informado' }}</span>
+            
           </div>
           
           
@@ -89,7 +89,7 @@
             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
             </svg>
-            Voltar ao Dashboard
+            Voltar
           </button>
         </div>
         
