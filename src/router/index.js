@@ -45,12 +45,18 @@ const router = createRouter({
           component: () => import('@/views/reservas/edit.vue')
         },
         {
-          path: '/perfil',
-          name: 'meuPerfil',
-          component: () => import('@/views/auth/MeuPerfil.vue'), // << AJUSTE O CAMINHO SE NECESSÁRIO
-          meta: { requerAuth: true } // Garante que só usuários logados acessem
+          path: 'edit',
+          name: 'reservas.editAlt',
+          // rota auxiliar caso queira editar reservas em /reservas/edit
+          component: () => import('@/views/reservas/edit.vue')
         },
       ]
+    },
+    {
+      path: '/perfil',
+      name: 'meuPerfil',
+      component: () => import('@/views/auth/MeuPerfil.vue'),
+      meta: { requerAuth: true }
     },
     {
       path: '/historico',
